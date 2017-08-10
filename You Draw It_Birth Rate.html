@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
 <meta charset="utf-8">
+<head>
+	<title>You Draw It</title>
 <style> /* set the CSS */
 #container {
 	min-width: 510px;
@@ -28,6 +29,8 @@
 .button {
     background-color: #3773ac; /* light blue*/
     border: none;
+		position:absolute;
+		left:50%;
     color: white;
     padding: 12px 25px;
     text-align: center;
@@ -46,6 +49,7 @@
 }
 
 </style>
+</head>
 
 <body>
 
@@ -54,11 +58,12 @@
 <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 <script src = "https://rawgit.com/highcharts/draggable-points/master/draggable-points.js"></script>
 
+<h2 align=center>Draw your guesses on the chart below to see if you’re as smart as you think you are.</h2>
 
 <div id="container" style="height: 500px"></div>
 <div id="drag"></div>
 <div id="drop"></div>
-<button class="button" id="button" style="position: absolute; left: 650px; top: 500px;">Show me how I did.</button>
+<button class="button" id="button" style="position: absolute; left: 45%; top: 580px;">Show me how I did.</button>
 <script type="text/javascript">
 
 
@@ -100,7 +105,7 @@ var chart = new Highcharts.Chart({
         }
     },
     title: {
-        text: 'Since 1960, the birth rate ...',
+        text: 'Since 1960, Birth rate, crude (per 1,000 people) ...',
 				style: {
 					fontSize: '22px'
 				}
@@ -306,7 +311,7 @@ $.get('data.csv', function(data) {
 setTimeout(function () {
 	chart.renderer.label(chart.series[2].data[55].y + "%", 850, 290)
 			.css({
-					//color: 'steelblue',
+					color: 'steelblue',
 					fontWeight: 'bold',
 					fontSize: '14px'
 			})
@@ -329,4 +334,3 @@ $(".highcharts-credits").remove()
 
 </script>
 </body>
-</html>
